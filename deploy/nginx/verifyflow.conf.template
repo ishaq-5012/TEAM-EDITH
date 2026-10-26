@@ -1,0 +1,104 @@
+# VerifyFlow reverse proxy: HTTPS termination, the built SPA, and /api proxied to the API containers on one origin.
+# ${VERIFYFLOW_DOMAIN} is substituted by the nginx image's envsubst step at container start.
+# Certificates: mount them at /etc/nginx/certs (fullchain.pem, privkey.pem), e.g. from certbot or your load balancer.
+
+# Per-IP request limits, in addition to the application's sign-in throttling.
+limit_req_zone $binary_remote_addr zone=vf_api:10m rate=20r/s;
+limit_req_zone $binary_remote_addr zone=vf_login:10m rate=10r/m;
+limit_req_zone $binary_remote_addr zone=vf_upload:10m rate=30r/m;
+limit_req_status 429;
+
+upstream verifyflow_api {
+    server api:8000;
+    keepalive 16;
+}
+
+server {
+    listen 80;
+    server_name ${VERIFYFLOW_DOMAIN};
+    location /.well-known/acme-challenge/ { root /var/www/certbot; }
+    location / { return 301 https://$host$request_uri; }
+}
+
+server {
+    listen 443 ssl;
+    http2 on;
+    server_name ${VERIFYFLOW_DOMAIN};
+
+    ssl_certificate     /etc/nginx/certs/fullchain.pem;
+    ssl_certificate_key /etc/nginx/certs/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers off;
+    ssl_session_cache shared:vf_tls:10m;
+    ssl_session_tickets off;
+
+    server_tokens off;
+    # Slightly above VERIFYFLOW_MAX_UPLOAD_BYTES (25 MiB) for multipart overhead; the API enforces the exact limit.
+    client_max_body_size 27m;
+    client_body_timeout 60s;
+
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "same-origin" always;
+    add_header Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()" always;
+    add_header Cross-Origin-Opener-Policy "same-origin" always;
+    # Scripts only from this origin. Inline style attributes are used by the animation and chart libraries.
+    # blob: is for document previews and page images that the SPA fetches with the session and displays locally.
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; frame-src blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" always;
+
+    root /usr/share/nginx/html;
+
+    # Hashed build assets never change: cache for a year.
+    location /assets/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        try_files $uri =404;
+    }
+
+    # Client-side routes fall back to index.html, which is never cached (so a release is picked up at once).
+    location / {
+        add_header Cache-Control "no-cache" always;
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; frame-src blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'" always;
+        try_files $uri /index.html;
+    }
+
+    location /api/ {
+        limit_req zone=vf_api burst=40 nodelay;
+        proxy_pass http://verifyflow_api;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Request-ID $request_id;
+        proxy_read_timeout 120s;
+        # Uploads stream to the API, which enforces size and type limits before storing anything.
+        proxy_request_buffering off;
+    }
+
+    location = /api/v1/auth/login {
+        limit_req zone=vf_login burst=5 nodelay;
+        proxy_pass http://verifyflow_api;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Request-ID $request_id;
+    }
+
+    location ~ ^/api/v1/applications/[^/]+/documents$ {
+        limit_req zone=vf_upload burst=10 nodelay;
+        proxy_pass http://verifyflow_api;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Request-ID $request_id;
+        proxy_request_buffering off;
+        proxy_read_timeout 120s;
+    }
+
+    # Interactive API docs are disabled in production by the API itself; block the paths here as well.
+    location ~ ^/api/(docs|openapi\.json) { return 404; }
+}

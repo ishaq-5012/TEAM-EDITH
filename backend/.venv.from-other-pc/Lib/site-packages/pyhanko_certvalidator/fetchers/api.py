@@ -1,0 +1,283 @@
+"""
+Asynchronous API for fetching OCSP responses, CRLs and certificates.
+"""
+
+import abc
+from collections.abc import AsyncGenerator, Iterable
+from dataclasses import dataclass
+
+from asn1crypto import cms, crl, ocsp, x509
+
+from pyhanko_certvalidator.authority import Authority
+from pyhanko_certvalidator.version import __version__
+
+__all__ = [
+    'DEFAULT_USER_AGENT',
+    'CRLFetcher',
+    'CertificateFetcher',
+    'FetchLimits',
+    'FetcherBackend',
+    'Fetchers',
+    'OCSPFetcher',
+    'OwnedFetcherBackend',
+]
+
+DEFAULT_USER_AGENT = f'pyhanko_certvalidator {__version__}'
+
+
+class OCSPFetcher(abc.ABC):
+    """Utility interface to fetch and cache OCSP responses."""
+
+    async def fetch(
+        self,
+        cert: x509.Certificate | cms.AttributeCertificateV2,
+        authority: Authority,
+    ) -> ocsp.OCSPResponse:
+        """
+        Fetch an OCSP response for a certificate.
+
+        :param cert:
+            The certificate for which an OCSP response has to be fetched.
+        :param authority:
+            The issuing authority.
+        :raises:
+            OCSPFetchError - Raised if an OCSP response could not be obtained.
+        :return:
+            An OCSP response.
+        """
+        raise NotImplementedError
+
+    def fetched_responses(self) -> Iterable[ocsp.OCSPResponse]:
+        """
+        Return all responses fetched by this OCSP fetcher.
+        """
+        raise NotImplementedError
+
+    def fetched_responses_for_cert(
+        self, cert: x509.Certificate | cms.AttributeCertificateV2
+    ) -> Iterable[ocsp.OCSPResponse]:
+        """
+        Return all responses fetched by this OCSP fetcher that are relevant
+        to determine the revocation status of the given certificate.
+        """
+        raise NotImplementedError
+
+
+class CRLFetcher(abc.ABC):
+    """Utility interface to fetch and cache CRLs."""
+
+    async def fetch(
+        self,
+        cert: x509.Certificate | cms.AttributeCertificateV2,
+        *,
+        use_deltas=None,
+    ) -> Iterable[crl.CertificateList]:
+        """
+        Fetches the CRLs for a certificate.
+
+        :param cert:
+            An asn1crypto.x509.Certificate object to get the CRL for
+
+        :param use_deltas:
+            A boolean indicating if delta CRLs should be fetched
+
+        :raises:
+            CRLFetchError - when a network/IO error or decoding error occurs
+
+        :return:
+            An iterable of CRLs fetched.
+        """
+        # side note: we don't want this to be a generator, because in principle,
+        #  we always need to consider CRLs from all distribution points together
+        #  anyway, so there's no "stream processing" to speak of.
+        # (this is currently not 100% efficient in the default implementation,
+        #  see comments below)
+        raise NotImplementedError
+
+    def fetched_crls(self) -> Iterable[crl.CertificateList]:
+        """
+        Return all CRLs fetched by this CRL fetcher.
+        """
+        raise NotImplementedError
+
+    def fetched_crls_for_cert(
+        self, cert: x509.Certificate | cms.AttributeCertificateV2
+    ) -> Iterable[crl.CertificateList]:
+        """
+        Return all relevant fetched CRLs for the given certificate
+
+        :param cert:
+            A certificate.
+        :return:
+            An iterable of CRLs
+        :raise KeyError:
+            if no fetch operations have been performed for this certificate
+        """
+        raise NotImplementedError
+
+
+class CertificateFetcher(abc.ABC):
+    """Utility interface to fetch and cache certificates."""
+
+    def fetch_cert_issuers(
+        self, cert: x509.Certificate | cms.AttributeCertificateV2
+    ) -> AsyncGenerator[x509.Certificate, None]:
+        """
+        Fetches certificates from the authority information access extension of
+        a certificate.
+
+        :param cert:
+            A certificate
+
+        :raises:
+            CertificateFetchError - when a network I/O or decoding error occurs
+
+        :return:
+            An asynchronous generator yielding asn1crypto.x509.Certificate
+            objects that were fetched.
+        """
+        raise NotImplementedError
+
+    def fetch_crl_issuers(
+        self, certificate_list
+    ) -> AsyncGenerator[x509.Certificate, None]:
+        """
+        Fetches certificates from the authority information access extension of
+        an asn1crypto.crl.CertificateList.
+
+        :param certificate_list:
+            An asn1crypto.crl.CertificateList object
+
+        :raises:
+            CertificateFetchError - when a network I/O or decoding error occurs
+
+        :return:
+            An asynchronous generator yielding asn1crypto.x509.Certificate
+            objects that were fetched.
+        """
+        raise NotImplementedError
+
+    def fetched_certs(self) -> Iterable[x509.Certificate]:
+        """
+        Return all certificates retrieved by this certificate fetcher.
+        """
+        raise NotImplementedError
+
+
+@dataclass(frozen=True)
+class FetchLimits:
+    """
+    .. versionadded:: 0.33.0
+
+    Bounds on the amount of fetching that the built-in fetcher backends
+    perform on behalf of a single :class:`.Fetchers` instance (which, in
+    practice, means a single validation context).
+
+    URLs to fetch are taken from the certificates and CRLs being processed, so
+    without bounds, a single hostile input can trigger an arbitrary amount of
+    network activity. The defaults are far above what any real PKI needs.
+    Set a field to ``None`` to disable that particular limit.
+
+    Requests that are served from a fetcher's cache are not counted.
+    When a limit is hit, the request is not made and the fetch fails with the
+    usual error for its type (e.g. :class:`.CertificateFetchError`).
+
+    .. note::
+        Only the built-in backends enforce these limits. Custom
+        :class:`.FetcherBackend` implementations are responsible for
+        their own limits.
+    """
+
+    max_requests: int | None = 1000
+    """
+    Maximum number of network requests of any type.
+    """
+
+    max_cert_requests: int | None = 200
+    """
+    Maximum number of requests for issuer certificates, whether the URL came
+    from a certificate or from a CRL. These requests also count towards
+    :attr:`max_requests`. Since every step of chasing down a certificate chain
+    costs at least one such request, this also bounds the chain length.
+    """
+
+    max_aia_urls_per_object: int | None = 10
+    """
+    Maximum number of ``caIssuers`` URLs to follow for any single certificate
+    or CRL. Surplus URLs are ignored.
+    """
+
+
+@dataclass(frozen=True)
+class Fetchers:
+    """
+    Models a collection of fetchers to be used by a validation context.
+
+    The intention is that these can share resources (like a connection pool)
+    in a unified, controlled manner. See also :class:`.FetcherBackend`.
+    """
+
+    ocsp_fetcher: OCSPFetcher
+    crl_fetcher: CRLFetcher
+    cert_fetcher: CertificateFetcher
+
+
+class FetcherBackend(abc.ABC):
+    """
+    Generic, bare-bones interface to help abstract away instantiation logic for
+    fetcher implementations.
+
+    Intended to operate as an asynchronous context manager, with
+    `async with backend_obj as fetchers: ...` putting the resulting
+    :class:`.Fetchers` object in to the variable named `fetchers`.
+
+    .. note::
+        The initialisation part of the API is necessarily synchronous,
+        for backwards compatibility with the old ``ValidationContext`` API.
+        If you need asynchronous resource management, handle it elsewhere,
+        or use some form of lazy resource provisioning.
+
+        Alternatively, you can pass :class:`Fetchers` objects to the validation
+        context yourself, and forgo use of the :class:`.FetcherBackend`
+        API altogether.
+    """
+
+    def get_fetchers(self) -> Fetchers:
+        """
+        Set up fetchers synchronously.
+
+        .. note::
+            This is a synchronous method
+        """
+        raise NotImplementedError
+
+    async def close(self):
+        """
+        Clean up the resources associated with this fetcher backend,
+        asynchronously.
+        """
+
+    async def __aenter__(self) -> Fetchers:
+        return self.get_fetchers()
+
+    async def __aexit__(self, exc_type, exc_val, exc_tb):
+        return await self.close()
+
+
+@dataclass(frozen=True)
+class OwnedFetcherBackend:
+    """
+    .. versionadded:: 0.32.0
+
+    Wrapper handing a backend's lifetime over to whoever it is passed to.
+
+    Backends are ordinarily the caller's to close, so passing one to a
+    validation context leaves it untouched. Wrap it in this to say the
+    opposite: the recipient provisioned it in all but name, and releases it
+    when the operation it was provisioned for is over.
+    """
+
+    backend: FetcherBackend
+    """
+    The backend whose lifetime is being handed over.
+    """

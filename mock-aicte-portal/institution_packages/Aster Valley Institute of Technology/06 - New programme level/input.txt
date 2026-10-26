@@ -1,0 +1,25 @@
+APPLICATION: New programme level
+CATEGORY ID: new-level
+INSTITUTION: Aster Valley Institute of Technology
+
+FORM INPUTS
+approval_ref: AVIT-PRIOR-2025
+programme: Computer Science and Engineering
+level: Postgraduate
+proposed_intake: 24
+academic_year: 2026-27
+justification: Request for new programme level supported by the enclosed institution records.
+declaration: Yes
+
+UPLOAD EACH FILE WITH THIS DOCUMENT TYPE
+approval: approval.pdf (optional)
+programme: programme.pdf (required)
+faculty: faculty.pdf (optional)
+infrastructure: infrastructure.pdf (optional)
+declaration: declaration.pdf (required)
+
+SEQUENCE
+1. Open this application category in the institution portal.
+2. Enter all form inputs and upload every listed PDF under its document type.
+3. Confirm the declaration and select Save and submit application.
+4. Review delivery, extraction, evidence and officer status in VerifyFlow.

@@ -1,0 +1,27 @@
+APPLICATION: New programme or course
+CATEGORY ID: new-course
+INSTITUTION: Harborview Institute of Engineering
+
+FORM INPUTS
+approval_ref: HIE-PRIOR-2025
+programme: Artificial Intelligence and Data Science
+level: Undergraduate
+proposed_intake: 60
+academic_year: 2026-27
+justification: Request for new programme or course supported by the enclosed institution records.
+declaration: Yes
+
+UPLOAD EACH FILE WITH THIS DOCUMENT TYPE
+approval: approval.pdf (optional)
+programme: programme.pdf (required)
+faculty: faculty.pdf (optional)
+infrastructure: infrastructure.pdf (optional)
+affiliation: affiliation.pdf (conditional)
+declaration: declaration.pdf (required)
+
+SEQUENCE
+1. Sign in to the institution portal.
+2. Select this category and enter the form inputs above.
+3. Upload each PDF under its matching document type.
+4. Confirm the declaration and select Save and submit application.
+5. Review document extraction, evidence, rules and officer status in VerifyFlow.

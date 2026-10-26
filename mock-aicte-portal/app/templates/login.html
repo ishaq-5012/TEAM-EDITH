@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Sign in{% endblock %}
+{% block content %}
+<div class="auth-layout">
+  <div class="auth-copy">
+    <span class="eyebrow">WELCOME BACK</span>
+    <h1>Sign in to your workspace.</h1>
+    <p>Continue an application, review your institution's status, or open the administrator queue.</p>
+    <div class="callout"><strong>Institution accounts</strong><p>Use your institution credentials or register a new institution account. Email verification and password reset are not available.</p></div>
+  </div>
+  <form class="card auth-form" method="post">
+    <h2>Account sign in</h2>
+    <p>Enter your portal credentials.</p>
+    <label>Username<input name="username" required autocomplete="username"></label>
+    <label>Password<input name="password" type="password" required autocomplete="current-password"></label>
+    <button class="button primary full">Sign in</button>
+    <div id="evaluator-quick-fill" class="evaluator-quick-fill" hidden>
+      <h3>Auto-fill credentials</h3>
+      <div class="quick-fill-links" aria-label="Institution evaluator accounts"></div>
+    </div>
+    <p class="fine">New institution? <a href="{{ url_for('register_page') }}">Create an account</a></p>
+  </form>
+</div>
+{% endblock %}

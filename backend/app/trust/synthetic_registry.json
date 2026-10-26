@@ -1,0 +1,8 @@
+{
+  "description": "SYNTHETIC registry for development and tests. Every record is invented; none refers to a real person or document.",
+  "records": [
+    {"document_number": "SYN-000123", "issuer": "Synthetic Issuing Authority", "full_name": "Test Person Alpha", "date_of_birth": "1990-03-03", "status": "valid"},
+    {"document_number": "SYN-000456", "issuer": "Synthetic Issuing Authority", "full_name": "Test Person Beta", "date_of_birth": "1985-07-14", "status": "revoked"},
+    {"document_number": "SYN-000789", "issuer": "Synthetic Issuing Authority", "full_name": "Test Person Gamma", "date_of_birth": "1978-11-30", "status": "valid"}
+  ]
+}

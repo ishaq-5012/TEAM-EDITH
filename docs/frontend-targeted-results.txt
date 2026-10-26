@@ -1,0 +1,750 @@
+
+ RUN  v3.0.5 E:/sih 2/frontend
+
+ ❯ src/test/review.test.tsx (9 tests | 1 failed) 11923ms
+   ✓ review queue > lists items by priority, filters through the API and supports arrow-key navigation 989ms
+   ✓ review queue > shows an honest empty state
+   ✓ review item > shows the split pane: document, extracted field, rule, uncertainty and history 574ms
+   ✓ review item > is read-only for auditors
+   × review item > explains escalation and hides decisions from reviewers without oversight 3857ms
+     → Unable to find an element with the text: /only a compliance manager can decide/. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"[39m
+    [36m>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"[39m
+        [33mhref[39m=[32m"#main"[39m
+      [36m>[39m
+        [0mSkip to content[0m
+      [36m</a>[39m
+      [36m<div[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"scene"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"tricolor-bar"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-a"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-b"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-c"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob-d"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-floor"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-grid depth-1"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"depth-2"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mclass[39m=[32m"chakra"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"420"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstyle[39m=[32m"top: 6%; left: 64%; opacity: 0.35;"[39m
+            [33mviewBox[39m=[32m"-50 -50 100 100"[39m
+            [33mwidth[39m=[32m"420"[39m
+          [36m>[39m
+            [36m<circle[39m
+              [33mr[39m=[32m"46"[39m
+              [33mstroke-width[39m=[32m"3"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mopacity[39m=[32m"0.6"[39m
+              [33mr[39m=[32m"40"[39m
+              [33mstroke-width[39m=[32m"0.8"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mr[39m=[32m"6"[39m
+              [33mstroke[39m=[32m"none"[39m
+            [36m/>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(0)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(15)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(30)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(45)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(60)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(75)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(90)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransfor...
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"[39m
+    [36m>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"[39m
+        [33mhref[39m=[32m"#main"[39m
+      [36m>[39m
+        [0mSkip to content[0m
+      [36m</a>[39m
+      [36m<div[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"scene"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"tricolor-bar"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-a"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-b"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-c"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob-d"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-floor"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-grid depth-1"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"depth-2"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mclass[39m=[32m"chakra"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"420"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstyle[39m=[32m"top: 6%; left: 64%; opacity: 0.35;"[39m
+            [33mviewBox[39m=[32m"-50 -50 100 100"[39m
+            [33mwidth[39m=[32m"420"[39m
+          [36m>[39m
+            [36m<circle[39m
+              [33mr[39m=[32m"46"[39m
+              [33mstroke-width[39m=[32m"3"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mopacity[39m=[32m"0.6"[39m
+              [33mr[39m=[32m"40"[39m
+              [33mstroke-width[39m=[32m"0.8"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mr[39m=[32m"6"[39m
+              [33mstroke[39m=[32m"none"[39m
+            [36m/>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(0)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(15)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(30)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(45)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(60)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(75)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(90)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransfor...
+   ✓ review item > requires a reason to dismiss and sends the version and an idempotency key 1926ms
+   ✓ review item > recovers from a conflicting decision without losing the typed reason 1102ms
+   ✓ review item > shows a comment immediately and removes it if the server rejects it 965ms
+   ✓ review item > corrects a value with before/after preview and reports revalidation 2293ms
+ ❯ src/test/insights.test.tsx (9 tests | 1 failed) 45723ms
+   × Command Center > shows scoped current-state tiles that link to filtered lists, and labels synthetic data 42906ms
+     → Test timed out in 20000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+   ✓ Command Center > explains a metric on demand
+   ✓ Command Center > shows an honest empty state and an error state
+   ✓ Governance & Insights > sends window and synthetic filters to the server and keeps them in the URL 482ms
+   ✓ Governance & Insights > pages through validation history and rule governance events
+   ✓ Governance & Insights > filters audit history by action group, outcome and dates 571ms
+   ✓ Exports > locks sensitive datasets for roles without exports:sensitive
+   ✓ Exports > requires a reason before exporting document values and sends the explicit opt-in 588ms
+   ✓ Exports > shows the server refusal
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/test/review.test.tsx > review item > explains escalation and hides decisions from reviewers without oversight
+TestingLibraryElementError: Unable to find an element with the text: /only a compliance manager can decide/. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"
+    >
+      <a
+        class="sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+        href="#main"
+      >
+        Skip to content
+      </a>
+      <div
+        aria-hidden="true"
+        class="scene"
+      >
+        <div
+          class="tricolor-bar"
+        />
+        <div
+          class="scene-blob scene-blob-a"
+        />
+        <div
+          class="scene-blob scene-blob-b"
+        />
+        <div
+          class="scene-blob scene-blob-c"
+        />
+        <div
+          class="scene-blob-d"
+        />
+        <div
+          class="scene-floor"
+        />
+        <div
+          class="scene-grid depth-1"
+        />
+        <div
+          class="depth-2"
+        >
+          <svg
+            class="chakra"
+            fill="none"
+            height="420"
+            stroke="currentColor"
+            style="top: 6%; left: 64%; opacity: 0.35;"
+            viewBox="-50 -50 100 100"
+            width="420"
+          >
+            <circle
+              r="46"
+              stroke-width="3"
+            />
+            <circle
+              opacity="0.6"
+              r="40"
+              stroke-width="0.8"
+            />
+            <circle
+              fill="currentColor"
+              r="6"
+              stroke="none"
+            />
+            <g
+              transform="rotate(0)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(15)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(30)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(45)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(60)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(75)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(90)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transfor...
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"
+    >
+      <a
+        class="sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+        href="#main"
+      >
+        Skip to content
+      </a>
+      <div
+        aria-hidden="true"
+        class="scene"
+      >
+        <div
+          class="tricolor-bar"
+        />
+        <div
+          class="scene-blob scene-blob-a"
+        />
+        <div
+          class="scene-blob scene-blob-b"
+        />
+        <div
+          class="scene-blob scene-blob-c"
+        />
+        <div
+          class="scene-blob-d"
+        />
+        <div
+          class="scene-floor"
+        />
+        <div
+          class="scene-grid depth-1"
+        />
+        <div
+          class="depth-2"
+        >
+          <svg
+            class="chakra"
+            fill="none"
+            height="420"
+            stroke="currentColor"
+            style="top: 6%; left: 64%; opacity: 0.35;"
+            viewBox="-50 -50 100 100"
+            width="420"
+          >
+            <circle
+              r="46"
+              stroke-width="3"
+            />
+            <circle
+              opacity="0.6"
+              r="40"
+              stroke-width="0.8"
+            />
+            <circle
+              fill="currentColor"
+              r="6"
+              stroke="none"
+            />
+            <g
+              transform="rotate(0)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(15)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(30)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(45)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(60)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(75)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(90)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transfor...
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/test/review.test.tsx:147:25
+    145|     setup('reviewer', { 'GET /reviews/i1': () => json(200, detail({ pe…
+    146|     renderAt('/review/i1')
+    147|     expect(await screen.findByText(/only a compliance manager can deci…
+       |                         ^
+    148|     expect(screen.queryByRole('button', { name: 'Confirm finding' })).…
+    149|     expect(screen.queryByRole('button', { name: 'Resume' })).not.toBeI…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/test/insights.test.tsx > Command Center > shows scoped current-state tiles that link to filtered lists, and labels synthetic data
+Error: Test timed out in 20000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 16 passed (18)
+   Start at  16:51:13
+   Duration  109.40s (transform 1.77s, setup 13.17s, collect 19.73s, tests 57.65s, environment 15.77s, prepare 1.11s)
+

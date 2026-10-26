@@ -1,0 +1,78 @@
+# VerifyFlow single-host production stack. Run from the repository root:
+#   docker compose -f deploy/docker-compose.yml --env-file deploy/.env.production up -d
+# NOT run in this repository's environment (no container runtime was available). See docs/DEPLOYMENT.md before use.
+# With a managed PostgreSQL, delete the `db` service, its volume and the depends_on entries that name it.
+
+name: verifyflow
+
+x-app: &app
+  image: verifyflow-api:${VERIFYFLOW_VERSION:-local}
+  build: { context: ../backend, dockerfile: Dockerfile }
+  env_file: .env.production
+  restart: unless-stopped
+  read_only: true
+  tmpfs: [/tmp]
+  security_opt: [no-new-privileges:true]
+  volumes:
+    - storage:/var/lib/verifyflow/storage
+    # - ./trust-roots:/etc/verifyflow/trust-roots:ro   # your own CA certificates, if you verify signatures
+  networks: [backend]
+
+services:
+  db:
+    image: postgres:16.6-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [backend]
+
+  # One-shot: apply migrations before the API starts. A failure stops the rollout (api depends on its success).
+  migrate:
+    <<: *app
+    restart: "no"
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      db: { condition: service_healthy }
+
+  api:
+    <<: *app
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+
+  # Runs queued document processing (OCR, extraction). Scale with `--scale worker=N`; jobs are claimed atomically.
+  worker:
+    <<: *app
+    command: ["python", "-m", "app.cli", "worker"]
+    healthcheck: { disable: true }
+    depends_on:
+      migrate: { condition: service_completed_successfully }
+
+  web:
+    image: verifyflow-web:${VERIFYFLOW_VERSION:-local}
+    build: { context: .., dockerfile: frontend/Dockerfile }
+    restart: unless-stopped
+    environment:
+      VERIFYFLOW_DOMAIN: ${VERIFYFLOW_DOMAIN}
+    ports: ["80:80", "443:443"]
+    volumes:
+      - ./certs:/etc/nginx/certs:ro
+      - ./certbot-www:/var/www/certbot:ro
+    depends_on: [api]
+    networks: [backend]
+
+volumes:
+  pgdata:
+  storage:
+
+networks:
+  backend:
+    ipam:
+      config: [{ subnet: 172.28.0.0/16 }]   # inside the API's --forwarded-allow-ips range (172.16.0.0/12)

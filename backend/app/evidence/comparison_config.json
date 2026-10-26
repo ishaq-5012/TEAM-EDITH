@@ -1,0 +1,240 @@
+{
+  "version": "2026.10-aicte-portal",
+  "groups": [
+    {
+      "key": "person_name",
+      "label": "Person name",
+      "comparator": "name",
+      "fields": [
+        "full_name"
+      ],
+      "severity": "high",
+      "impacts": [
+        "identity_verification"
+      ],
+      "options": {
+        "ignore_case": true,
+        "ignore_diacritics": true,
+        "ignore_punctuation": true,
+        "allow_token_reorder": false
+      },
+      "scope": "general"
+    },
+    {
+      "key": "date_of_birth",
+      "label": "Date of birth",
+      "comparator": "date",
+      "fields": [
+        "date_of_birth"
+      ],
+      "severity": "critical",
+      "impacts": [
+        "identity_verification",
+        "age_eligibility"
+      ],
+      "options": {
+        "tolerance_days": 0
+      },
+      "scope": "general"
+    },
+    {
+      "key": "national_id",
+      "label": "National ID number",
+      "comparator": "identifier",
+      "fields": [
+        "national_id"
+      ],
+      "severity": "critical",
+      "impacts": [
+        "identity_verification"
+      ],
+      "options": {
+        "ignore_separators": true
+      },
+      "scope": "general"
+    },
+    {
+      "key": "account_number",
+      "label": "Account number",
+      "comparator": "identifier",
+      "fields": [
+        "account_number"
+      ],
+      "severity": "medium",
+      "impacts": [
+        "payment_routing"
+      ],
+      "options": {
+        "ignore_separators": false
+      },
+      "scope": "general"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "comparator": "address",
+      "fields": [
+        "address"
+      ],
+      "severity": "medium",
+      "impacts": [
+        "address_verification"
+      ],
+      "options": {
+        "ignore_case": true,
+        "ignore_punctuation": true,
+        "abbreviations": {}
+      },
+      "scope": "general"
+    },
+    {
+      "key": "document_number",
+      "label": "Document number",
+      "comparator": "document_number",
+      "fields": [
+        "document_number"
+      ],
+      "severity": "low",
+      "impacts": [],
+      "options": {
+        "ignore_separators": false
+      },
+      "scope": "general"
+    },
+    {
+      "key": "institution_name",
+      "label": "Institution name",
+      "comparator": "name",
+      "fields": [
+        "institution_name"
+      ],
+      "severity": "high",
+      "impacts": [
+        "institution_identity"
+      ],
+      "options": {
+        "ignore_case": true,
+        "ignore_diacritics": true,
+        "ignore_punctuation": true,
+        "allow_token_reorder": false
+      },
+      "scope": "portal"
+    },
+    {
+      "key": "institution_reference",
+      "label": "Institution reference",
+      "comparator": "identifier",
+      "fields": [
+        "institution_reference"
+      ],
+      "severity": "high",
+      "impacts": [
+        "institution_identity"
+      ],
+      "options": {
+        "ignore_separators": false
+      },
+      "scope": "portal"
+    },
+    {
+      "key": "approval_reference",
+      "label": "Previous approval reference",
+      "comparator": "identifier",
+      "fields": [
+        "approval_reference"
+      ],
+      "severity": "high",
+      "impacts": [
+        "approval_history"
+      ],
+      "options": {
+        "ignore_separators": false
+      },
+      "scope": "portal"
+    },
+    {
+      "key": "programme_name",
+      "label": "Programme or course",
+      "comparator": "text",
+      "fields": [
+        "programme_name"
+      ],
+      "severity": "high",
+      "impacts": [
+        "programme_review"
+      ],
+      "options": {
+        "ignore_case": true,
+        "ignore_whitespace": true
+      },
+      "scope": "portal"
+    },
+    {
+      "key": "current_intake",
+      "label": "Current intake",
+      "comparator": "identifier",
+      "fields": [
+        "current_intake"
+      ],
+      "severity": "high",
+      "impacts": [
+        "intake_review"
+      ],
+      "options": {
+        "ignore_separators": false
+      },
+      "scope": "portal"
+    },
+    {
+      "key": "proposed_intake",
+      "label": "Proposed intake",
+      "comparator": "identifier",
+      "fields": [
+        "proposed_intake"
+      ],
+      "severity": "high",
+      "impacts": [
+        "intake_review"
+      ],
+      "options": {
+        "ignore_separators": false
+      },
+      "scope": "portal"
+    },
+    {
+      "key": "academic_year",
+      "label": "Academic year",
+      "comparator": "identifier",
+      "fields": [
+        "academic_year"
+      ],
+      "severity": "medium",
+      "impacts": [
+        "approval_cycle"
+      ],
+      "options": {
+        "ignore_separators": false
+      },
+      "scope": "portal"
+    },
+    {
+      "key": "affiliation_name",
+      "label": "Affiliating university",
+      "comparator": "name",
+      "fields": [
+        "affiliation_name"
+      ],
+      "severity": "medium",
+      "impacts": [
+        "affiliation_review"
+      ],
+      "options": {
+        "ignore_case": true,
+        "ignore_diacritics": true,
+        "ignore_punctuation": true,
+        "allow_token_reorder": false
+      },
+      "scope": "portal"
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "version": "2026.10-aicte-portal",
+  "fields": [
+    {
+      "key": "full_name",
+      "label": "Full name",
+      "type": "name",
+      "labels": [
+        "Full name",
+        "Name",
+        "Applicant name",
+        "Applicant",
+        "Account holder",
+        "Holder name"
+      ],
+      "scope": "general"
+    },
+    {
+      "key": "date_of_birth",
+      "label": "Date of birth",
+      "type": "date",
+      "labels": [
+        "Date of birth",
+        "DOB",
+        "Birth date"
+      ],
+      "date_order": "DMY",
+      "scope": "general"
+    },
+    {
+      "key": "issue_date",
+      "label": "Issue date",
+      "type": "date",
+      "labels": [
+        "Issue date",
+        "Date of issue",
+        "Issued on"
+      ],
+      "date_order": "DMY"
+    },
+    {
+      "key": "expiry_date",
+      "label": "Expiry date",
+      "type": "date",
+      "labels": [
+        "Expiry date",
+        "Date of expiry",
+        "Valid until",
+        "Expires"
+      ],
+      "date_order": "DMY"
+    },
+    {
+      "key": "national_id",
+      "label": "National ID number",
+      "type": "identifier",
+      "labels": [
+        "National ID",
+        "National ID number",
+        "ID number",
+        "Identity number"
+      ],
+      "pattern": "^[A-Z0-9][A-Z0-9-]{3,29}$",
+      "uppercase": true,
+      "remove_separators": false,
+      "scope": "general"
+    },
+    {
+      "key": "account_number",
+      "label": "Account number",
+      "type": "identifier",
+      "labels": [
+        "Account number",
+        "Account no",
+        "Account"
+      ],
+      "pattern": "^[A-Z0-9][A-Z0-9-]{3,39}$",
+      "uppercase": true,
+      "remove_separators": false,
+      "scope": "general"
+    },
+    {
+      "key": "address",
+      "label": "Address",
+      "type": "address",
+      "labels": [
+        "Address",
+        "Residential address",
+        "Registered address",
+        "Postal address"
+      ],
+      "max_lines": 4,
+      "scope": "general"
+    },
+    {
+      "key": "document_number",
+      "label": "Document number",
+      "type": "document_number",
+      "labels": [
+        "Document number",
+        "Document no",
+        "Passport number",
+        "Licence number",
+        "Statement number"
+      ],
+      "pattern": "^[A-Z0-9][A-Z0-9 /-]{2,39}$",
+      "uppercase": true,
+      "scope": "general"
+    },
+    {
+      "key": "institution_name",
+      "label": "Institution name",
+      "type": "name",
+      "labels": [
+        "Institution name",
+        "Institution"
+      ],
+      "scope": "portal"
+    },
+    {
+      "key": "institution_reference",
+      "label": "Institution reference",
+      "type": "identifier",
+      "labels": [
+        "Institution reference"
+      ],
+      "scope": "portal",
+      "pattern": "^[A-Z0-9][A-Z0-9-]{2,79}$",
+      "uppercase": true
+    },
+    {
+      "key": "approval_reference",
+      "label": "Previous approval reference",
+      "type": "identifier",
+      "labels": [
+        "Existing approval reference",
+        "Approval reference",
+        "Existing fictional history reference"
+      ],
+      "scope": "portal",
+      "pattern": "^[A-Z0-9][A-Z0-9-]{2,79}$",
+      "uppercase": true
+    },
+    {
+      "key": "programme_name",
+      "label": "Programme or course",
+      "type": "text",
+      "labels": [
+        "Programme / course",
+        "Target programme",
+        "Programme"
+      ],
+      "scope": "portal",
+      "strip_trailing_code": true,
+      "strip_inline_intake": true
+    },
+    {
+      "key": "academic_year",
+      "label": "Academic year",
+      "type": "identifier",
+      "labels": [
+        "Academic year"
+      ],
+      "scope": "portal",
+      "pattern": "^20[0-9]{2}-[0-9]{2}$"
+    },
+    {
+      "key": "current_intake",
+      "label": "Current intake",
+      "type": "identifier",
+      "labels": [
+        "Current intake",
+        "Existing approved intake"
+      ],
+      "scope": "portal",
+      "pattern": "^[0-9]{1,6}$"
+    },
+    {
+      "key": "proposed_intake",
+      "label": "Proposed intake",
+      "type": "identifier",
+      "labels": [
+        "Proposed intake"
+      ],
+      "scope": "portal",
+      "pattern": "^[0-9]{1,6}$"
+    },
+    {
+      "key": "faculty_count",
+      "label": "Faculty count",
+      "type": "identifier",
+      "labels": [
+        "Faculty entries",
+        "Total faculty",
+        "Faculty roster"
+      ],
+      "scope": "portal",
+      "document_types": [
+        "faculty",
+        "registration"
+      ],
+      "pattern": "^[0-9]{1,6}$"
+    },
+    {
+      "key": "facility_count",
+      "label": "Facilities count",
+      "type": "identifier",
+      "labels": [
+        "Rooms and facilities",
+        "Facility count"
+      ],
+      "scope": "portal",
+      "document_types": [
+        "infrastructure",
+        "registration"
+      ],
+      "pattern": "^[0-9]{1,6}$"
+    },
+    {
+      "key": "affiliation_name",
+      "label": "Affiliating university",
+      "type": "name",
+      "labels": [
+        "Proposed affiliation",
+        "Affiliation"
+      ],
+      "scope": "portal",
+      "document_types": [
+        "affiliation",
+        "registration"
+      ]
+    }
+  ]
+}

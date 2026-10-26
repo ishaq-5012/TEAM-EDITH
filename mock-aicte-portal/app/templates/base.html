@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}EduApproval{% endblock %} · Institutional Application Portal</title>
+<link rel="icon" type="image/svg+xml" href="{{ url_for('static',filename='favicon.svg') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='verifyflow-theme.css') }}"></head>
+<body class="{{ 'signed-in' if current_user else 'public-page' }}">
+<div class="tricolor-bar" aria-hidden="true"></div>
+<div class="ambient-scene" aria-hidden="true"><span class="scene-glow scene-glow-one"></span><span class="scene-glow scene-glow-two"></span><span class="scene-glow scene-glow-three"></span><span class="scene-grid"></span><span class="scene-floor"></span><span class="cursor-light"></span></div>
+{% if current_user %}<div class="workspace-shell"><div class="nav-backdrop" data-close-nav></div>
+<aside class="workspace-sidebar" id="workspace-nav" aria-label="Workspace navigation">
+<a class="brand sidebar-brand" href="{{ url_for('index') }}"><span class="mark" aria-hidden="true">E<span>✓</span></span><span><strong>EduApproval</strong><small>Institutional Portal</small></span></a>
+<div class="sidebar-label">{{ 'ADMINISTRATION' if current_user.role=='admin' else 'INSTITUTION WORKSPACE' }}</div>
+<nav class="side-nav" aria-label="Primary navigation">
+{% if current_user.role=='admin' %}
+<a class="{{ 'active' if request.endpoint in ['admin_dashboard','admin_application'] else '' }}" href="{{ url_for('admin_dashboard') }}"><span class="nav-icon" aria-hidden="true">▦</span> Application queue</a>
+<a href="{{ url_for('admin_dashboard') }}#institutions"><span class="nav-icon" aria-hidden="true">⌂</span> Institutions</a>
+<a href="{{ url_for('admin_dashboard') }}#audit"><span class="nav-icon" aria-hidden="true">◷</span> Audit log</a>
+{% else %}
+<a class="{{ 'active' if request.endpoint=='dashboard' else '' }}" href="{{ url_for('dashboard') }}"><span class="nav-icon" aria-hidden="true">▦</span> Dashboard</a>
+<a class="{{ 'active' if request.endpoint in ['applications_collection','application_page'] else '' }}" href="{{ url_for('applications_collection') }}"><span class="nav-icon" aria-hidden="true">▤</span> Applications</a>
+<a class="{{ 'active' if request.endpoint=='profile' else '' }}" href="{{ url_for('profile') }}"><span class="nav-icon" aria-hidden="true">◇</span> Institution profile</a>
+{% endif %}</nav>
+<div class="sidebar-bottom"><div class="sidebar-feature"><span class="feature-spark" aria-hidden="true">✦</span><strong>Evidence, clearly tracked.</strong><small>Every action has a history.</small></div><div class="system-badge"><span class="system-dot" aria-hidden="true"></span> Local institution portal <span class="system-label">ACTIVE</span></div></div>
+</aside><div class="workspace-content"><div class="prototype">INSTITUTIONAL APPLICATION WORKSPACE — NOT AN OFFICIAL AICTE SERVICE</div>
+<header class="topbar workspace-topbar"><div class="top-inner"><button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="workspace-nav" aria-expanded="false" data-open-nav>☰</button><div class="top-context"><span class="top-kicker">EDUAPPROVAL / WORKSPACE</span><strong>{{ 'Admin review' if current_user.role=='admin' else 'Institution portal' }}</strong></div><nav aria-label="Account navigation">{% if current_user.role=='institution' %}<a href="{{ url_for('profile') }}">Profile</a>{% endif %}<form class="inline" method="post" action="{{ url_for('logout') }}"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="nav-button">Sign out</button></form></nav></div></header>
+{% else %}<div class="prototype">INSTITUTIONAL APPLICATION WORKSPACE — NOT AN OFFICIAL AICTE SERVICE</div>
+<header class="topbar public-topbar"><div class="top-inner"><a class="brand" href="{{ url_for('index') }}"><span class="mark" aria-hidden="true">E<span>✓</span></span><span><strong>EduApproval</strong><small>Institutional Application Portal</small></span></a><nav aria-label="Primary navigation"><a href="{{ url_for('login_page') }}">Sign in</a><a class="nav-cta" href="{{ url_for('register_page') }}">Register institution</a></nav></div></header>
+{% endif %}
+<main id="main" class="container">{% with messages=get_flashed_messages(with_categories=true) %}{% for kind,message in messages %}<div class="alert {{ kind }}" role="alert">{{ message }}</div>{% endfor %}{% endwith %}{% block content %}{% endblock %}</main>
+<footer><div class="container footer-inner"><span>© EduApproval · Institutional application workspace</span><span>Institutional processing · No official AICTE submission</span></div></footer>
+{% if current_user %}</div></div>{% endif %}
+<script src="{{ url_for('static',filename='portal.js') }}" defer></script></body></html>

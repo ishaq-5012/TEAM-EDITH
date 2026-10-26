@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block title %}Error{% endblock %}{% block content %}<div class="error-page"><span class="eyebrow">PORTAL MESSAGE</span><h1>{{ error }}</h1><p>Return to your workspace and try again.</p><a class="button primary" href="{{ url_for('index') }}">Go to portal</a></div>{% endblock %}

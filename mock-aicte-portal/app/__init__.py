@@ -1,0 +1,1 @@
+"""Independent EduApproval demonstration portal."""

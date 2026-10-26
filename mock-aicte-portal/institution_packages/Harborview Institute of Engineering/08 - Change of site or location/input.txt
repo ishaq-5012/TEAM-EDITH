@@ -1,0 +1,25 @@
+APPLICATION: Change of site or location
+CATEGORY ID: site
+INSTITUTION: Harborview Institute of Engineering
+
+FORM INPUTS
+approval_ref: HIE-PRIOR-2025
+new_location: 48 Academic Way, Chennai, Tamil Nadu
+effective_date: 2027-07-01
+justification: Request for change of site or location supported by the enclosed institution records.
+declaration: Yes
+
+UPLOAD EACH FILE WITH THIS DOCUMENT TYPE
+approval: approval.pdf (optional)
+land: land.pdf (conditional)
+building: building.pdf (conditional)
+safety: safety.pdf (conditional)
+explanation: explanation.pdf (required)
+declaration: declaration.pdf (required)
+
+SEQUENCE
+1. Sign in to the institution portal.
+2. Select this category and enter the form inputs above.
+3. Upload each PDF under its matching document type.
+4. Confirm the declaration and select Save and submit application.
+5. Review document extraction, evidence, rules and officer status in VerifyFlow.

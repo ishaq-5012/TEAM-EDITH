@@ -1,0 +1,1511 @@
+
+> verifyflow-frontend@0.1.0 test
+> vitest run --maxWorkers=1 --minWorkers=1 --reporter=dot --silent
+
+
+ RUN  v3.0.5 E:/sih 2/frontend
+
+ ✓ src/test/compliance.test.tsx (11 tests) 7202ms
+   ✓ compliance studio register > lists rules with the version in force, pending work and the non-legal disclaimer 1113ms
+   ✓ compliance studio register > shows a retryable error state 426ms
+   ✓ rule lifecycle > enforces four-eyes in the UI: the author sees no approve action on their own pending version 727ms
+   ✓ rule lifecycle > lets a different publisher approve with a review note 694ms
+   ✓ rule editor > builds conditions from the allowlisted catalog and saves a declarative definition 1123ms
+   ✓ rule editor > shows server validation errors and blocks saving an invalid definition 862ms
+   ✓ what-if simulation > shows before/after outcomes and sends the unsaved edit, never a publish 682ms
+   ✓ validation runs > shows results with traces back to the source page and checks reproducibility 1005ms
+ ✓ src/test/evidence.test.tsx (14 tests) 5494ms
+   ✓ evidence graph > draws only stored relationships and references, with accessible labels 1489ms
+   ✓ evidence graph > collapses and expands document nodes 382ms
+   ✓ evidence graph > shows a side-by-side comparison with provenance and inspector deep links 479ms
+   ✓ evidence graph > colours matrix cells by agreement and lists comparisons on demand 411ms
+   ✓ evidence graph > opens evidence in a drawer that closes on Escape and returns focus 446ms
+   ✓ evidence graph > filters checks by outcome from the summary tiles 697ms
+ ❯ src/test/review.test.tsx (9 tests | 1 failed) 7649ms
+   ✓ review queue > lists items by priority, filters through the API and supports arrow-key navigation 1145ms
+   ✓ review queue > shows an honest empty state
+   ✓ review item > shows the split pane: document, extracted field, rule, uncertainty and history
+   ✓ review item > is read-only for auditors
+   × review item > explains escalation and hides decisions from reviewers without oversight 3045ms
+     → Unable to find an element with the text: /only a compliance manager or administrator can decide/. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"[39m
+    [36m>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"[39m
+        [33mhref[39m=[32m"#main"[39m
+      [36m>[39m
+        [0mSkip to content[0m
+      [36m</a>[39m
+      [36m<div[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"scene"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"tricolor-bar"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-a"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-b"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-c"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob-d"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-floor"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-grid depth-1"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"depth-2"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mclass[39m=[32m"chakra"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"420"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstyle[39m=[32m"top: 6%; left: 64%; opacity: 0.35;"[39m
+            [33mviewBox[39m=[32m"-50 -50 100 100"[39m
+            [33mwidth[39m=[32m"420"[39m
+          [36m>[39m
+            [36m<circle[39m
+              [33mr[39m=[32m"46"[39m
+              [33mstroke-width[39m=[32m"3"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mopacity[39m=[32m"0.6"[39m
+              [33mr[39m=[32m"40"[39m
+              [33mstroke-width[39m=[32m"0.8"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mr[39m=[32m"6"[39m
+              [33mstroke[39m=[32m"none"[39m
+            [36m/>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(0)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(15)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(30)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(45)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(60)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(75)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(90)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransfor...
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"[39m
+    [36m>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"[39m
+        [33mhref[39m=[32m"#main"[39m
+      [36m>[39m
+        [0mSkip to content[0m
+      [36m</a>[39m
+      [36m<div[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"scene"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"tricolor-bar"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-a"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-b"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-c"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob-d"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-floor"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-grid depth-1"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"depth-2"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mclass[39m=[32m"chakra"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"420"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstyle[39m=[32m"top: 6%; left: 64%; opacity: 0.35;"[39m
+            [33mviewBox[39m=[32m"-50 -50 100 100"[39m
+            [33mwidth[39m=[32m"420"[39m
+          [36m>[39m
+            [36m<circle[39m
+              [33mr[39m=[32m"46"[39m
+              [33mstroke-width[39m=[32m"3"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mopacity[39m=[32m"0.6"[39m
+              [33mr[39m=[32m"40"[39m
+              [33mstroke-width[39m=[32m"0.8"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mr[39m=[32m"6"[39m
+              [33mstroke[39m=[32m"none"[39m
+            [36m/>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(0)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(15)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(30)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(45)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(60)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(75)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(90)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransfor...
+   ✓ review item > requires a reason to dismiss and sends the version and an idempotency key 843ms
+   ✓ review item > recovers from a conflicting decision without losing the typed reason 729ms
+   ✓ review item > shows a comment immediately and removes it if the server rejects it 553ms
+   ✓ review item > corrects a value with before/after preview and reports revalidation 839ms
+ ❯ src/test/insights.test.tsx (9 tests | 1 failed) 21267ms
+   × Command Center > shows scoped current-state tiles that link to filtered lists, and labels synthetic data 18475ms
+     → Unable to find role="link" and name `/Rule failures \(engine\)/`
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"[39m
+    [36m>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"[39m
+        [33mhref[39m=[32m"#main"[39m
+      [36m>[39m
+        [0mSkip to content[0m
+      [36m</a>[39m
+      [36m<div[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"scene"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"tricolor-bar"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-a"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-b"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-c"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob-d"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-floor"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-grid depth-1"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"depth-2"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mclass[39m=[32m"chakra"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"420"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstyle[39m=[32m"top: 6%; left: 64%; opacity: 0.35;"[39m
+            [33mviewBox[39m=[32m"-50 -50 100 100"[39m
+            [33mwidth[39m=[32m"420"[39m
+          [36m>[39m
+            [36m<circle[39m
+              [33mr[39m=[32m"46"[39m
+              [33mstroke-width[39m=[32m"3"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mopacity[39m=[32m"0.6"[39m
+              [33mr[39m=[32m"40"[39m
+              [33mstroke-width[39m=[32m"0.8"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mr[39m=[32m"6"[39m
+              [33mstroke[39m=[32m"none"[39m
+            [36m/>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(0)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(15)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(30)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(45)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(60)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(75)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(90)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransfor...
+
+Ignored nodes: comments, script, style
+[36m<body>[39m
+  [36m<div>[39m
+    [36m<div[39m
+      [33mclass[39m=[32m"min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"[39m
+    [36m>[39m
+      [36m<a[39m
+        [33mclass[39m=[32m"sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"[39m
+        [33mhref[39m=[32m"#main"[39m
+      [36m>[39m
+        [0mSkip to content[0m
+      [36m</a>[39m
+      [36m<div[39m
+        [33maria-hidden[39m=[32m"true"[39m
+        [33mclass[39m=[32m"scene"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"tricolor-bar"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-a"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-b"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob scene-blob-c"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-blob-d"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-floor"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"scene-grid depth-1"[39m
+        [36m/>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"depth-2"[39m
+        [36m>[39m
+          [36m<svg[39m
+            [33mclass[39m=[32m"chakra"[39m
+            [33mfill[39m=[32m"none"[39m
+            [33mheight[39m=[32m"420"[39m
+            [33mstroke[39m=[32m"currentColor"[39m
+            [33mstyle[39m=[32m"top: 6%; left: 64%; opacity: 0.35;"[39m
+            [33mviewBox[39m=[32m"-50 -50 100 100"[39m
+            [33mwidth[39m=[32m"420"[39m
+          [36m>[39m
+            [36m<circle[39m
+              [33mr[39m=[32m"46"[39m
+              [33mstroke-width[39m=[32m"3"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mopacity[39m=[32m"0.6"[39m
+              [33mr[39m=[32m"40"[39m
+              [33mstroke-width[39m=[32m"0.8"[39m
+            [36m/>[39m
+            [36m<circle[39m
+              [33mfill[39m=[32m"currentColor"[39m
+              [33mr[39m=[32m"6"[39m
+              [33mstroke[39m=[32m"none"[39m
+            [36m/>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(0)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(15)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(30)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(45)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(60)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(75)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransform[39m=[32m"rotate(7.5)"[39m
+              [36m/>[39m
+            [36m</g>[39m
+            [36m<g[39m
+              [33mtransform[39m=[32m"rotate(90)"[39m
+            [36m>[39m
+              [36m<path[39m
+                [33md[39m=[32m"M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mstroke[39m=[32m"none"[39m
+              [36m/>[39m
+              [36m<circle[39m
+                [33mcy[39m=[32m"-43"[39m
+                [33mfill[39m=[32m"currentColor"[39m
+                [33mr[39m=[32m"1.6"[39m
+                [33mstroke[39m=[32m"none"[39m
+                [33mtransfor...
+   ✓ Command Center > explains a metric on demand
+   ✓ Command Center > shows an honest empty state and an error state
+   ✓ Governance & Insights > sends window and synthetic filters to the server and keeps them in the URL 417ms
+   ✓ Governance & Insights > pages through validation history and rule governance events
+   ✓ Governance & Insights > filters audit history by action group, outcome and dates 641ms
+   ✓ Exports > locks sensitive datasets for roles without exports:sensitive
+   ✓ Exports > requires a reason before exporting document values and sends the explicit opt-in 590ms
+   ✓ Exports > shows the server refusal
+ ✓ src/test/ai.test.tsx (7 tests) 555ms
+ ✓ src/test/applications.test.tsx (11 tests) 2331ms
+   ✓ applications list > shows applications, and filters by status through the API 570ms
+   ✓ uploads > shows server rejections; validation errors are final, transient errors can be retried 377ms
+ ✓ src/test/inspector.test.tsx (9 tests) 4205ms
+   ✓ extraction inspector > shows fields with status, baseline limitations and breadcrumb trail 335ms
+   ✓ extraction inspector > positions highlight boxes from stored coordinates as page percentages 351ms
+   ✓ extraction inspector > compares raw and normalized values and navigates to the source page 378ms
+   ✓ extraction inspector > shows raw and normalized page text 490ms
+   ✓ extraction inspector > submits corrections and requires a reason 1151ms
+   ✓ extraction inspector > hides correction and reprocess controls when not permitted 420ms
+   ✓ extraction inspector > offers extraction for documents processed before extraction existed 312ms
+   ✓ extraction inspector > honours deep links to a page and field (used by evidence findings) 645ms
+ ✓ src/test/trust.test.tsx (9 tests) 3258ms
+   ✓ trust center > separates implemented capabilities from those needing external infrastructure 366ms
+   ✓ document verification > shows the timeline, each dimension separately, and what remains unknown 1312ms
+   ✓ document verification > runs a verification and shows the new run; flags a stored file that differs from the upload 822ms
+   ✓ document verification > is read-only for auditors 710ms
+ ✓ src/test/design.test.tsx (8 tests) 4083ms
+   ✓ Disabled actions explain themselves > keeps an explained disabled button focusable, described and inert to clicks 305ms
+   ✓ Dialogs > traps focus, closes on Escape and restores focus to the trigger 468ms
+   ✓ Dialogs > moves focus to the main content when the trigger no longer exists 345ms
+   ✓ Shell keyboard support > traps focus in the mobile navigation drawer, makes the page inert, and restores focus on Escape 2194ms
+   ✓ Shell keyboard support > opens the account menu from the keyboard and moves between items with arrows 460ms
+ ✓ src/test/dropdown.test.tsx (7 tests) 1466ms
+   ✓ Dropdown > shows the selected option, is named by its label, and picks with the mouse 316ms
+   ✓ Dropdown > stays a real form field: react-hook-form register reads defaults and changes 315ms
+ ✓ src/test/login.test.tsx (8 tests) 3349ms
+   ✓ login flow > redirects anonymous users to login 532ms
+   ✓ login flow > shows the server error on bad credentials 607ms
+   ✓ login flow > shows throttling responses 517ms
+   ✓ login flow > signs in, reaches the protected route, and signs out on the server 775ms
+   ✓ login flow > warns before idle expiry and lets the user stay signed in 632ms
+ ✓ src/test/api.test.ts (12 tests) 57ms
+ ✓ src/test/shell.test.tsx (7 tests) 1925ms
+   ✓ permission-aware navigation > user-management controls render only with users:manage 1499ms
+ ✓ src/test/motion.test.tsx (4 tests) 153ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/test/review.test.tsx > review item > explains escalation and hides decisions from reviewers without oversight
+TestingLibraryElementError: Unable to find an element with the text: /only a compliance manager or administrator can decide/. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"
+    >
+      <a
+        class="sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+        href="#main"
+      >
+        Skip to content
+      </a>
+      <div
+        aria-hidden="true"
+        class="scene"
+      >
+        <div
+          class="tricolor-bar"
+        />
+        <div
+          class="scene-blob scene-blob-a"
+        />
+        <div
+          class="scene-blob scene-blob-b"
+        />
+        <div
+          class="scene-blob scene-blob-c"
+        />
+        <div
+          class="scene-blob-d"
+        />
+        <div
+          class="scene-floor"
+        />
+        <div
+          class="scene-grid depth-1"
+        />
+        <div
+          class="depth-2"
+        >
+          <svg
+            class="chakra"
+            fill="none"
+            height="420"
+            stroke="currentColor"
+            style="top: 6%; left: 64%; opacity: 0.35;"
+            viewBox="-50 -50 100 100"
+            width="420"
+          >
+            <circle
+              r="46"
+              stroke-width="3"
+            />
+            <circle
+              opacity="0.6"
+              r="40"
+              stroke-width="0.8"
+            />
+            <circle
+              fill="currentColor"
+              r="6"
+              stroke="none"
+            />
+            <g
+              transform="rotate(0)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(15)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(30)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(45)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(60)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(75)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(90)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transfor...
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"
+    >
+      <a
+        class="sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+        href="#main"
+      >
+        Skip to content
+      </a>
+      <div
+        aria-hidden="true"
+        class="scene"
+      >
+        <div
+          class="tricolor-bar"
+        />
+        <div
+          class="scene-blob scene-blob-a"
+        />
+        <div
+          class="scene-blob scene-blob-b"
+        />
+        <div
+          class="scene-blob scene-blob-c"
+        />
+        <div
+          class="scene-blob-d"
+        />
+        <div
+          class="scene-floor"
+        />
+        <div
+          class="scene-grid depth-1"
+        />
+        <div
+          class="depth-2"
+        >
+          <svg
+            class="chakra"
+            fill="none"
+            height="420"
+            stroke="currentColor"
+            style="top: 6%; left: 64%; opacity: 0.35;"
+            viewBox="-50 -50 100 100"
+            width="420"
+          >
+            <circle
+              r="46"
+              stroke-width="3"
+            />
+            <circle
+              opacity="0.6"
+              r="40"
+              stroke-width="0.8"
+            />
+            <circle
+              fill="currentColor"
+              r="6"
+              stroke="none"
+            />
+            <g
+              transform="rotate(0)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(15)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(30)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(45)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(60)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(75)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(90)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transfor...
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/test/review.test.tsx:147:25
+    145|     setup('reviewer', { 'GET /reviews/i1': () => json(200, detail({ pe…
+    146|     renderAt('/review/i1')
+    147|     expect(await screen.findByText(/only a compliance manager or admin…
+       |                         ^
+    148|     expect(screen.queryByRole('button', { name: 'Confirm finding' })).…
+    149|     expect(screen.queryByRole('button', { name: 'Resume' })).not.toBeI…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/test/insights.test.tsx > Command Center > shows scoped current-state tiles that link to filtered lists, and labels synthetic data
+TestingLibraryElementError: Unable to find role="link" and name `/Rule failures \(engine\)/`
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"
+    >
+      <a
+        class="sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+        href="#main"
+      >
+        Skip to content
+      </a>
+      <div
+        aria-hidden="true"
+        class="scene"
+      >
+        <div
+          class="tricolor-bar"
+        />
+        <div
+          class="scene-blob scene-blob-a"
+        />
+        <div
+          class="scene-blob scene-blob-b"
+        />
+        <div
+          class="scene-blob scene-blob-c"
+        />
+        <div
+          class="scene-blob-d"
+        />
+        <div
+          class="scene-floor"
+        />
+        <div
+          class="scene-grid depth-1"
+        />
+        <div
+          class="depth-2"
+        >
+          <svg
+            class="chakra"
+            fill="none"
+            height="420"
+            stroke="currentColor"
+            style="top: 6%; left: 64%; opacity: 0.35;"
+            viewBox="-50 -50 100 100"
+            width="420"
+          >
+            <circle
+              r="46"
+              stroke-width="3"
+            />
+            <circle
+              opacity="0.6"
+              r="40"
+              stroke-width="0.8"
+            />
+            <circle
+              fill="currentColor"
+              r="6"
+              stroke="none"
+            />
+            <g
+              transform="rotate(0)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(15)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(30)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(45)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(60)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(75)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(90)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transfor...
+
+Ignored nodes: comments, script, style
+<body>
+  <div>
+    <div
+      class="min-h-dvh lg:grid lg:grid-cols-[280px_1fr]"
+    >
+      <a
+        class="sr-only z-50 rounded bg-navy-900 px-3 py-2 text-white focus:not-sr-only focus:fixed focus:top-2 focus:left-2"
+        href="#main"
+      >
+        Skip to content
+      </a>
+      <div
+        aria-hidden="true"
+        class="scene"
+      >
+        <div
+          class="tricolor-bar"
+        />
+        <div
+          class="scene-blob scene-blob-a"
+        />
+        <div
+          class="scene-blob scene-blob-b"
+        />
+        <div
+          class="scene-blob scene-blob-c"
+        />
+        <div
+          class="scene-blob-d"
+        />
+        <div
+          class="scene-floor"
+        />
+        <div
+          class="scene-grid depth-1"
+        />
+        <div
+          class="depth-2"
+        >
+          <svg
+            class="chakra"
+            fill="none"
+            height="420"
+            stroke="currentColor"
+            style="top: 6%; left: 64%; opacity: 0.35;"
+            viewBox="-50 -50 100 100"
+            width="420"
+          >
+            <circle
+              r="46"
+              stroke-width="3"
+            />
+            <circle
+              opacity="0.6"
+              r="40"
+              stroke-width="0.8"
+            />
+            <circle
+              fill="currentColor"
+              r="6"
+              stroke="none"
+            />
+            <g
+              transform="rotate(0)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(15)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(30)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(45)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(60)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(75)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transform="rotate(7.5)"
+              />
+            </g>
+            <g
+              transform="rotate(90)"
+            >
+              <path
+                d="M0 -6 L1.6 -26 L0 -44 L-1.6 -26 Z"
+                fill="currentColor"
+                stroke="none"
+              />
+              <circle
+                cy="-43"
+                fill="currentColor"
+                r="1.6"
+                stroke="none"
+                transfor...
+ ❯ waitForWrapper node_modules/@testing-library/dom/dist/wait-for.js:163:27
+ ❯ node_modules/@testing-library/dom/dist/query-helpers.js:86:33
+ ❯ src/test/insights.test.tsx:83:35
+     81|     renderAt('/')
+     82|     // First render in this file loads the lazy Command Center and cha…
+     83|     const failures = await screen.findByRole('link', { name: /Rule fai…
+       |                                   ^
+     84|     expect(failures).toHaveAttribute('href', '/review?category=failure…
+     85|     expect(within(failures).getByText('2')).toBeInTheDocument()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  2 failed | 12 passed (14)
+      Tests  2 failed | 123 passed (125)
+   Start at  14:24:19
+   Duration  443.64s (transform 3.14s, setup 30.83s, collect 18.22s, tests 62.99s, environment 70.54s, prepare 253.85s)
+

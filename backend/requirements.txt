@@ -1,0 +1,22 @@
+fastapi==0.161.1
+uvicorn[standard]==0.32.1
+pydantic==2.10.4
+pydantic-settings==2.7.0
+email-validator==2.2.0
+SQLAlchemy==2.0.36
+alembic==1.14.0
+# PostgreSQL driver (production database). SQLite needs no driver.
+psycopg[binary]==3.2.3
+argon2-cffi==23.1.0
+python-multipart==0.0.31
+PyMuPDF==1.25.1
+pillow==13.0.0
+pytesseract==0.3.13
+# PDF signature validation (Trust Center). pyhanko-certvalidator and cryptography are pinned with it.
+pyHanko==0.38.0
+pyhanko-certvalidator==0.33.0
+cryptography==50.0.2
+# Online registry connectors (Trust Center).
+httpx==0.28.1
+# AI assistance (Phase 9): the official Anthropic SDK. Only used when VERIFYFLOW_AI_PROVIDER=anthropic and a key is set.
+anthropic==1.17.0

@@ -1,0 +1,20 @@
+APPLICATION: Other application type
+CATEGORY ID: other
+INSTITUTION: Harborview Institute of Engineering
+
+FORM INPUTS
+programme: Computer Science and Engineering
+academic_year: 2026-27
+justification: Request for other application type supported by the enclosed institution records.
+declaration: Yes
+
+UPLOAD EACH FILE WITH THIS DOCUMENT TYPE
+explanation: explanation.pdf (required)
+declaration: declaration.pdf (required)
+
+SEQUENCE
+1. Sign in to the institution portal.
+2. Select this category and enter the form inputs above.
+3. Upload each PDF under its matching document type.
+4. Confirm the declaration and select Save and submit application.
+5. Review document extraction, evidence, rules and officer status in VerifyFlow.

@@ -1,0 +1,12 @@
+Institution name: Aster Valley Institute of Technology
+Institution reference: AVIT-REG-001
+Existing approval reference: AVIT-PRIOR-2025
+Address: 12 Campus Road, Chennai, Tamil Nadu 600001
+District: Chennai
+State: Tamil Nadu
+Affiliation: South Coast Technical University
+Faculty entries: 42
+Rooms and facilities: 25
+
+Use the existing portal account password.
+The institution owns these supporting records; external-source confirmation is a separate review step.

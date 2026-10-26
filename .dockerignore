@@ -1,0 +1,13 @@
+# Build context for frontend/Dockerfile (repository root). Keep secrets, data and dependencies out of images.
+**/node_modules
+frontend/dist
+backend
+deploy/.env.production
+deploy/backups
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.production.example
+.claude
+docs
+*.log

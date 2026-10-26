@@ -1,0 +1,24 @@
+APPLICATION: Closure of a programme or course
+CATEGORY ID: closure
+INSTITUTION: Harborview Institute of Engineering
+
+FORM INPUTS
+approval_ref: HIE-PRIOR-2025
+programme: Computer Science and Engineering
+current_intake: 120
+effective_date: 2027-07-01
+justification: Request for closure of a programme or course supported by the enclosed institution records. Current students will complete their programme through a documented teach-out plan.
+declaration: Yes
+
+UPLOAD EACH FILE WITH THIS DOCUMENT TYPE
+approval: approval.pdf (optional)
+programme: programme.pdf (required)
+explanation: explanation.pdf (required)
+declaration: declaration.pdf (required)
+
+SEQUENCE
+1. Sign in to the institution portal.
+2. Select this category and enter the form inputs above.
+3. Upload each PDF under its matching document type.
+4. Confirm the declaration and select Save and submit application.
+5. Review document extraction, evidence, rules and officer status in VerifyFlow.

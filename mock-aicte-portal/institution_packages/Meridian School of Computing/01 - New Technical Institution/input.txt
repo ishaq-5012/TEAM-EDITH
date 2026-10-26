@@ -1,0 +1,29 @@
+APPLICATION: New Technical Institution
+CATEGORY ID: new
+INSTITUTION: Meridian School of Computing
+
+FORM INPUTS
+programme: Information Technology
+level: Undergraduate
+proposed_intake: 120
+academic_year: 2026-27
+justification: Request for new technical institution supported by the enclosed institution records.
+declaration: Yes
+
+UPLOAD EACH FILE WITH THIS DOCUMENT TYPE
+registration: registration.pdf (optional)
+land: land.pdf (conditional)
+building: building.pdf (conditional)
+safety: safety.pdf (conditional)
+faculty: faculty.pdf (optional)
+programme: programme.pdf (required)
+infrastructure: infrastructure.pdf (optional)
+library: library.pdf (optional)
+finance: finance.pdf (conditional)
+declaration: declaration.pdf (required)
+
+SEQUENCE
+1. Open this application category in the institution portal.
+2. Enter all form inputs and upload every listed PDF under its document type.
+3. Confirm the declaration and select Save and submit application.
+4. Review delivery, extraction, evidence and officer status in VerifyFlow.

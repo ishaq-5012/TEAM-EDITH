@@ -1,0 +1,21 @@
+
+ RUN  v3.0.5 E:/sih 2/frontend
+
+ ✓ src/test/compliance.test.tsx (11 tests) 16170ms
+   ✓ compliance studio register > lists rules with the version in force, pending work and the non-legal disclaimer 2481ms
+   ✓ compliance studio register > hides authoring controls from read-only roles (the server enforces it too) 592ms
+   ✓ compliance studio register > shows a retryable error state 455ms
+   ✓ rule lifecycle > enforces four-eyes in the UI: the author sees no approve action on their own pending version 1446ms
+   ✓ rule lifecycle > lets a different publisher approve with a review note 1300ms
+   ✓ rule lifecycle > reports failing synthetic tests when submission is refused 709ms
+   ✓ rule editor > builds conditions from the allowlisted catalog and saves a declarative definition 2316ms
+   ✓ rule editor > shows server validation errors and blocks saving an invalid definition 1974ms
+   ✓ what-if simulation > shows before/after outcomes and sends the unsaved edit, never a publish 2014ms
+   ✓ validation runs > shows results with traces back to the source page and checks reproducibility 2332ms
+   ✓ validation runs > explains when no rules are in force 544ms
+
+ Test Files  1 passed (1)
+      Tests  11 passed (11)
+   Start at  14:16:47
+   Duration  31.96s (transform 1.36s, setup 1.96s, collect 10.80s, tests 16.17s, environment 2.24s, prepare 202ms)
+
