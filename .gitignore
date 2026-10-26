@@ -11,6 +11,7 @@ deploy/.env.production
 deploy/certs/
 deploy/certbot-www/
 deploy/backups/
+deploy/azure-demo/demo-data.tar.gz
 *.dump
 
 # --- Python

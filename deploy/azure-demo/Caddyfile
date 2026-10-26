@@ -1,0 +1,18 @@
+{$VERIFYFLOW_DOMAIN} {
+    encode zstd gzip
+
+    handle /api/* {
+        reverse_proxy api:8000
+    }
+
+    handle {
+        root * /srv/verifyflow
+        try_files {path} /index.html
+        file_server
+    }
+}
+
+{$PORTAL_DOMAIN} {
+    encode zstd gzip
+    reverse_proxy portal:5000
+}

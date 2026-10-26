@@ -1,0 +1,78 @@
+# SIH evaluator demo on one Azure VM. HTTPS terminates at Caddy.
+# Run: docker compose -f deploy/azure-demo/compose.yml --env-file deploy/azure-demo/.env up -d --build
+name: sih-evaluator-demo
+
+services:
+  migrate:
+    build:
+      context: ../../backend
+      dockerfile: Dockerfile
+    env_file: .env
+    command: ["alembic", "upgrade", "head"]
+    volumes:
+      - ../../backend/var:/app/var
+    networks: [internal]
+    restart: "no"
+
+  api:
+    build:
+      context: ../../backend
+      dockerfile: Dockerfile
+    env_file: .env
+    command:
+      - uvicorn
+      - app.main:app
+      - --host
+      - 0.0.0.0
+      - --port
+      - "8000"
+      - --workers
+      - "1"
+      - --proxy-headers
+      - --forwarded-allow-ips
+      - 172.16.0.0/12
+      - --no-server-header
+    volumes:
+      - ../../backend/var:/app/var
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    restart: unless-stopped
+    networks: [internal]
+
+  portal:
+    build:
+      context: ../..
+      dockerfile: deploy/azure-demo/portal.Dockerfile
+    env_file: .env
+    environment:
+      VERIFYFLOW_INTAKE_URL: http://api:8000
+    volumes:
+      - ../../mock-aicte-portal/var:/app/var
+    depends_on: [api]
+    restart: unless-stopped
+    networks: [internal]
+
+  web:
+    build:
+      context: ../..
+      dockerfile: deploy/azure-demo/web.Dockerfile
+    env_file: .env
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on: [api, portal]
+    restart: unless-stopped
+    networks: [internal]
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  internal:
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16

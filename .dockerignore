@@ -2,6 +2,11 @@
 **/node_modules
 frontend/dist
 backend
+mock-aicte-portal/var
+mock-aicte-portal/.venv
+mock-aicte-portal/institution_packages
+mock-aicte-portal/synthetic_data
+mock-aicte-portal/tests
 deploy/.env.production
 deploy/backups
 **/.env
