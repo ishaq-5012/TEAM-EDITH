@@ -24,7 +24,7 @@ from app.trust.checks import NOT_ESTABLISHED, Check, Dimension, State
 
 D, S = Dimension, State
 DEFAULT_SYNTHETIC = Path(__file__).with_name("synthetic_registry.json")
-COMPARED = ("full_name", "date_of_birth")
+COMPARED = ("full_name", "date_of_birth", "institution_name")
 
 
 @dataclass
@@ -56,9 +56,11 @@ def _compare(record: dict, fields: Fields) -> tuple[list[str], list[str]]:
 
 
 def _judge(
-    base: dict, number: str, found: bool, status: str | None, record: dict, fields: Fields, limitations: list[str]
+    base: dict, number: str, found: bool, status: str | None, record: dict, fields: Fields, limitations: list[str],
+    reference_label: str = "document number",
 ) -> Check:
-    ev = {"document_number": number, "found": found, "status": status}
+    reference_key = "institution_reference" if reference_label == "institution reference" else "document_number"
+    ev = {reference_key: number, "found": found, "status": status}
     if not found:
         return Check(
             **base,
@@ -66,8 +68,8 @@ def _judge(
             code="not_found",
             evidence=ev,
             limitations=limitations,
-            summary="The registry has no record for this document number. Absence from a registry is not "
-            "proof of forgery (the record may be missing, or the number misread).",
+            summary=f"The registry has no record for this {reference_label}. Absence from a registry is not "
+            "proof of forgery (the record may be missing, or the reference misread).",
         )
     matched, mismatched = _compare(record, fields)
     ev.update(
@@ -80,7 +82,7 @@ def _judge(
             code=f"registry_status_{status}",
             evidence=ev,
             limitations=limitations,
-            summary=f"The registry reports this document number as “{status}”.",
+            summary=f"The registry reports this {reference_label} as “{status}”.",
         )
     if mismatched:
         return Check(
@@ -106,7 +108,7 @@ def _judge(
         code="registry_match",
         evidence=ev,
         limitations=limitations,
-        establishes="The registry holds a valid record with this document number whose "
+        establishes=f"The registry holds a valid record with this {reference_label} whose "
         + " and ".join(matched)
         + " match the document.",
         summary="Registry record found and the compared details match.",
@@ -128,14 +130,15 @@ class SyntheticRegistry:
             "SYNTHETIC: this registry contains invented records for testing; a match proves nothing "
             "about any real document."
         ]
-        number = fields.values.get("document_number")
+        key = "document_number" if fields.values.get("document_number") else "institution_reference"
+        number = fields.values.get(key)
         if not number:
             return Check(
                 **base,
                 state=S.UNSUPPORTED,
                 code="no_document_number",
                 limitations=limitations,
-                summary="No document number was extracted, so the registry can't be queried.",
+                summary="No document number or institution reference was extracted, so the registry can't be queried.",
             )
         try:
             records = json.loads(self.path.read_text(encoding="utf-8"))["records"]
@@ -148,8 +151,9 @@ class SyntheticRegistry:
                 evidence={"error": exc.__class__.__name__},
                 summary="The synthetic registry file could not be read.",
             )
-        rec = next((r for r in records if str(r.get("document_number", "")).casefold() == number.casefold()), None)
-        return _judge(base, number, rec is not None, (rec or {}).get("status"), rec or {}, fields, limitations)
+        rec = next((r for r in records if str(r.get(key, "")).casefold() == number.casefold()), None)
+        return _judge(base, number, rec is not None, (rec or {}).get("status"), rec or {}, fields, limitations,
+                      "institution reference" if key == "institution_reference" else "document number")
 
 
 class HttpJsonRegistry:

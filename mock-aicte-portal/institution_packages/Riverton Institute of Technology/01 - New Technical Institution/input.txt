@@ -1,0 +1,22 @@
+APPLICATION: New Technical Institution
+CATEGORY ID: new
+INSTITUTION: Riverton Institute of Technology
+
+FORM INPUTS
+programme: Computer Science and Engineering
+level: Undergraduate
+proposed_intake: 60
+academic_year: 2026-27
+justification: Proposal for a new technical institution, supported by the enclosed records.
+declaration: Yes
+
+INITIAL UPLOAD
+registration: registration.pdf
+programme: programme.pdf
+declaration: declaration.pdf
+
+ESCALATION
+The published internal evidence-set rule asks for four supporting files. This submission contains three, so the reviewer can escalate the rule finding.
+
+REMEDIATION FILE
+remediation/safety.pdf is prepared but must not be uploaded initially.

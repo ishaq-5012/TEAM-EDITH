@@ -52,6 +52,15 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(r.status_code,201,r.json)
         return r.json["data"]["id"]
 
+    def test_sign_out_returns_to_login_and_revokes_session(self):
+        self.register("LogoutCollege")
+        csrf=self.login("logoutcollege")
+        response=self.client.post("/logout",data={"csrf":csrf})
+        self.assertEqual(response.status_code,302)
+        self.assertEqual(response.headers["Location"],"/login")
+        self.assertEqual(self.client.get("/dashboard").status_code,302)
+        self.assertEqual(self.client.get("/dashboard").headers["Location"],"/login")
+
     def test_evaluator_autofill_uses_separate_institution_account(self):
         from werkzeug.security import generate_password_hash
         self.register("Evaluator")

@@ -59,6 +59,7 @@ def test_portal_table_extracts_institution_fields_without_personal_identity_fiel
     assert fields["proposed_intake"].normalized_value == "132"
     assert "date_of_birth" not in fields
     assert "national_id" not in fields
+    assert not any(field.status == "missing" for field in fields.values())
 
 
 def test_portal_inline_programme_and_intake_are_extracted():

@@ -243,6 +243,11 @@ SYN = registries.SyntheticRegistry()
         ({"document_number": "SYN-999999", "full_name": "Test Person Alpha"}, State.INCONCLUSIVE, "not_found"),
         ({"full_name": "Test Person Alpha"}, State.UNSUPPORTED, "no_document_number"),
         ({"document_number": "SYN-000789"}, State.INCONCLUSIVE, "nothing_to_compare"),
+        (
+            {"institution_reference": "HIE-REG-001", "institution_name": "Harborview Institute of Engineering"},
+            State.VERIFIED,
+            "registry_match",
+        ),
     ],
 )
 def test_synthetic_registry_outcomes(values, state, code):

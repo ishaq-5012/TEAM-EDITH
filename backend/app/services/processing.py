@@ -61,16 +61,24 @@ def _inspect_pdf(data: bytes) -> dict:
     with pymupdf.open(stream=data, filetype="pdf") as doc:  # in memory: never holds a handle on stored files
         pages_without_text = [i + 1 for i, page in enumerate(doc) if not page.get_text("text").strip()]
         javascript = False
-        unreadable_objects = 0  # malformed objects cannot be scanned; counted and reported, not hidden
+        unreadable_xrefs: list[int] = []
+        readable_objects: list[bytes] = []
         for xref in range(1, min(doc.xref_length(), _MAX_XREFS_SCANNED)):
             try:
                 obj = doc.xref_object(xref, compressed=False).encode("latin-1", "replace")
             except Exception:  # noqa: BLE001
-                unreadable_objects += 1
+                unreadable_xrefs.append(xref)
                 continue  # noqa: S112
+            readable_objects.append(obj)
             if _JS_RE.search(obj):
                 javascript = True
-                break
+        # Signed PDFs commonly retain a free xref entry after an incremental update.
+        # MuPDF cannot read that entry, but it is not an unreadable *used* object.
+        # Keep the warning when another PDF object actually refers to the missing xref.
+        unreadable_objects = sum(
+            any(re.search(rb"(?<!\d)" + str(xref).encode() + rb"\s+\d+\s+R\b", obj) for obj in readable_objects)
+            for xref in unreadable_xrefs
+        )
         meta = {k: v for k, v in (doc.metadata or {}).items() if v}
         return {
             "kind": "pdf",

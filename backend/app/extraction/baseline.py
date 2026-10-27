@@ -19,7 +19,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
-from app.extraction.definitions import FieldDefinition, FieldDefinitionSet, FieldType, PORTAL_DOCUMENT_TYPES
+from app.extraction.definitions import PORTAL_DOCUMENT_TYPES, FieldDefinition, FieldDefinitionSet, FieldType
 from app.extraction.normalizers import normalize
 from app.extraction.pages import LOW_CONFIDENCE, PageContent, Word
 from app.models.extraction import FieldStatus, TextSource
@@ -228,6 +228,13 @@ def extract(pages: list[PageContent], definitions: FieldDefinitionSet, document_
             longest = max(len(candidate.label.strip()) for candidate in candidates)
             candidates = [candidate for candidate in candidates if len(candidate.label.strip()) == longest]
         if not candidates:
+            # Portal templates differ by application type. An absent optional
+            # value is not a document defect and should not inflate the
+            # inspector's "missing fields" count. Required portal fields still
+            # produce an explicit missing result and a review flag below.
+            if (definition.scope == "portal" and document_type in PORTAL_DOCUMENT_TYPES
+                    and document_type not in definition.required_for):
+                continue
             r = FieldResult(definition, FieldStatus.MISSING.value)
             if unreadable_pages:
                 r.flags.append("pages_without_text")
@@ -271,6 +278,12 @@ def extract(pages: list[PageContent], definitions: FieldDefinitionSet, document_
         # Other occurrences: identical values are fine, different ones are surfaced, never silently dropped.
         for other in candidates[1:]:
             other_norm = normalize(other.raw, definition, other.page.text_source == TextSource.OCR.value)
+            # A later narrative line such as "Faculty entries: 48; departments: 5"
+            # restates the already extracted count; the semicolon introduces
+            # explanatory details, not a second value for the same field.
+            if (definition.key in {"faculty_count", "facility_count"} and norm.value
+                    and re.match(rf"^\s*{re.escape(norm.value)}\s*;", other.raw)):
+                continue
             if (other_norm.value or other.raw) != (norm.value or first.raw):
                 r.alternatives.append(
                     {

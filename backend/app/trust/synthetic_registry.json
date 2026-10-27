@@ -3,6 +3,8 @@
   "records": [
     {"document_number": "SYN-000123", "issuer": "Synthetic Issuing Authority", "full_name": "Test Person Alpha", "date_of_birth": "1990-03-03", "status": "valid"},
     {"document_number": "SYN-000456", "issuer": "Synthetic Issuing Authority", "full_name": "Test Person Beta", "date_of_birth": "1985-07-14", "status": "revoked"},
-    {"document_number": "SYN-000789", "issuer": "Synthetic Issuing Authority", "full_name": "Test Person Gamma", "date_of_birth": "1978-11-30", "status": "valid"}
+    {"document_number": "SYN-000789", "issuer": "Synthetic Issuing Authority", "full_name": "Test Person Gamma", "date_of_birth": "1978-11-30", "status": "valid"},
+    {"institution_reference": "HIE-REG-001", "issuer": "Local test institution register", "institution_name": "Harborview Institute of Engineering", "status": "valid"},
+    {"institution_reference": "RIT-REG-001", "issuer": "Local test institution register", "institution_name": "Riverton Institute of Technology", "status": "valid"}
   ]
 }

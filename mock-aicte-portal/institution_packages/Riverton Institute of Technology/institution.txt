@@ -1,0 +1,8 @@
+Institution name: Riverton Institute of Technology
+Institution reference: RIT-REG-001
+Category: Engineering & Technology
+Ownership: Private unaided
+Address: 18 Knowledge Road, Chennai, Tamil Nadu 600113
+Established year: 2024
+Contact: Registrar, office@riverton.example.invalid
+These are institution-prepared records. The local test trust root is not a regulator credential.

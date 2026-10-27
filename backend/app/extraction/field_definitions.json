@@ -36,7 +36,8 @@
         "Date of issue",
         "Issued on"
       ],
-      "date_order": "DMY"
+      "date_order": "DMY",
+      "scope": "general"
     },
     {
       "key": "expiry_date",
@@ -48,7 +49,8 @@
         "Valid until",
         "Expires"
       ],
-      "date_order": "DMY"
+      "date_order": "DMY",
+      "scope": "general"
     },
     {
       "key": "national_id",
@@ -115,7 +117,11 @@
         "Institution name",
         "Institution"
       ],
-      "scope": "portal"
+      "scope": "portal",
+      "required_for": [
+        "registration", "approval", "land", "building", "safety", "faculty", "programme",
+        "infrastructure", "library", "affiliation", "finance", "declaration", "explanation"
+      ]
     },
     {
       "key": "institution_reference",
@@ -125,6 +131,10 @@
         "Institution reference"
       ],
       "scope": "portal",
+      "required_for": [
+        "registration", "approval", "land", "building", "safety", "faculty", "programme",
+        "infrastructure", "library", "affiliation", "finance", "declaration", "explanation"
+      ],
       "pattern": "^[A-Z0-9][A-Z0-9-]{2,79}$",
       "uppercase": true
     },
@@ -151,6 +161,7 @@
         "Programme"
       ],
       "scope": "portal",
+      "document_types": ["programme"],
       "strip_trailing_code": true,
       "strip_inline_intake": true
     },
@@ -173,6 +184,7 @@
         "Existing approved intake"
       ],
       "scope": "portal",
+      "document_types": ["programme"],
       "pattern": "^[0-9]{1,6}$"
     },
     {
@@ -183,6 +195,7 @@
         "Proposed intake"
       ],
       "scope": "portal",
+      "document_types": ["programme"],
       "pattern": "^[0-9]{1,6}$"
     },
     {

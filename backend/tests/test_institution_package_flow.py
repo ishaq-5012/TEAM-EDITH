@@ -10,12 +10,15 @@ from sqlalchemy import select
 
 from app.core.config import get_settings
 from app.core.roles import Role
+from app.extraction.definitions import load_definitions
+from app.extraction.ocr import UnavailableOcrEngine
+from app.extraction.pipeline import run as extract_document
 from app.models.application import Application
 from app.models.evidence import EvidenceAnalysis, EvidenceFinding
 from app.models.review import ReviewItem
 from app.models.rules import RuleResult, ValidationRun
 from app.models.trust import TrustVerification
-from app.services import application_service, review_service, rule_service
+from app.services import application_service, processing, review_service, rule_service
 from app.services.audit_service import AuditContext
 
 PACKAGES = Path(__file__).resolve().parents[2] / "mock-aicte-portal" / "institution_packages"
@@ -23,6 +26,26 @@ ASTER = PACKAGES / "Aster Valley Institute of Technology" / "02 - Extension of A
 HARBOR = PACKAGES / "Harborview Institute of Engineering" / "02 - Extension of Approval (EoA)"
 HARBOR_APPS = sorted((PACKAGES / "Harborview Institute of Engineering").glob("[0-9][0-9] - *"))
 TRUST = Path(__file__).resolve().parents[1] / "var" / "institution-trust"
+
+
+@pytest.mark.skipif(not HARBOR_APPS, reason="Harborview records are not installed")
+def test_signed_institution_pdf_free_xref_does_not_trigger_review():
+    document = next((PACKAGES / "Harborview Institute of Engineering").rglob("affiliation.pdf"))
+    inspection = processing._inspect_pdf(document.read_bytes())
+    status, findings = processing.assess(inspection, ocr=False)
+    assert inspection["unreadable_objects"] == 0
+    assert status == "ready"
+    assert not any(f["code"] == "pdf_unreadable_objects" for f in findings)
+
+
+@pytest.mark.skipif(not HARBOR_APPS, reason="Harborview records are not installed")
+def test_harborview_package_has_no_spurious_missing_fields_or_review_flags():
+    definitions, _ = load_definitions()
+    for document in (PACKAGES / "Harborview Institute of Engineering").rglob("*.pdf"):
+        result = extract_document(document.read_bytes(), "application/pdf", document.stem,
+                                  definitions, UnavailableOcrEngine(), 0)
+        assert result.summary["fields"]["missing"] == 0, document
+        assert not result.needs_review, (document, result.summary["fields_needing_attention"])
 
 
 @pytest.mark.skipif(not ASTER.is_dir() or not HARBOR.is_dir(), reason="Prepared institution packages are not installed")

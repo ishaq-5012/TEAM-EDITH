@@ -126,8 +126,8 @@ def index():
     if g.user: return redirect(url_for("admin_dashboard" if g.user["role"]=="admin" else "dashboard"))
     return render_template("home.html")
 
-@app.route("/register",methods=["GET","POST"])
 @app.route("/api/auth/register",methods=["POST"])
+@app.route("/register",methods=["GET","POST"])
 def register_page():
     if request.method=="GET":
         if g.user: return redirect(url_for("admin_dashboard" if g.user["role"]=="admin" else "dashboard"))
@@ -144,8 +144,8 @@ def register_page():
     flash("Institution account created.","success")
     return establish_session(user)
 
-@app.route("/login",methods=["GET","POST"])
 @app.route("/api/auth/login",methods=["POST"])
+@app.route("/login",methods=["GET","POST"])
 def login_page():
     if request.method=="GET":
         if g.user: return redirect(url_for("admin_dashboard" if g.user["role"]=="admin" else "dashboard"))
@@ -175,13 +175,13 @@ def evaluator_credentials():
     response.headers["Cache-Control"]="no-store"
     return response
 
-@app.route("/logout",methods=["POST"])
 @app.route("/api/auth/logout",methods=["POST"])
+@app.route("/logout",methods=["POST"])
 @role("institution","admin")
 def logout():
     token=request.cookies.get("edu_session","")
     get_db().execute("DELETE FROM sessions WHERE id_hash=?",(hashlib.sha256(token.encode()).hexdigest(),))
-    response=make_response((jsonify({"ok":True}) if is_api() else redirect(url_for("index"))))
+    response=make_response((jsonify({"ok":True}) if is_api() else redirect(url_for("login_page"))))
     response.delete_cookie("edu_session")
     return response
 
@@ -342,8 +342,8 @@ def admin_dashboard():
 @role("admin")
 def admin_application(app_id): return render_template("admin_application.html",**app_context(app_id))
 
-@app.route("/admin/applications/<app_id>/action",methods=["POST"])
 @app.route("/api/admin/applications/<app_id>/action",methods=["POST"])
+@app.route("/admin/applications/<app_id>/action",methods=["POST"])
 @role("admin")
 def admin_action(app_id):
     db=get_db(); a=application(db,app_id,g.user); data=payload() or {}; action=data.get("action","")
